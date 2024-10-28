@@ -1,10 +1,10 @@
 #include <mutex>
 
-#include <spdlog/async.h>
-#include <spdlog/details/null_mutex.h>
+#include <cango/spdlog/async.h>
+#include <cango/spdlog/details/null_mutex.h>
 
 #ifdef _WIN32
-#include <spdlog/sinks/wincolor_sink.h>
+#include <cango/spdlog/sinks/wincolor_sink.h>
 
 namespace spdlog::sinks {
     template class wincolor_sink<details::console_mutex>;
@@ -15,7 +15,8 @@ namespace spdlog::sinks {
     template class wincolor_stderr_sink<details::console_nullmutex>;
 }
 #else
-#include "spdlog/sinks/ansicolor_sink-inl.h"
+
+#include <cango/spdlog/sinks/ansicolor_sink.h>
 
 namespace spdlog::sinks {
     template class ansicolor_sink<details::console_mutex>;
@@ -27,8 +28,7 @@ namespace spdlog::sinks {
 }
 #endif
 
-// factory methods for color loggers
-#include "spdlog/sinks/stdout_color_sinks.h"
+#include <cango/spdlog/sinks/stdout_color_sinks.h>
 
 namespace spdlog {
     using sync_factory = synchronous_factory;

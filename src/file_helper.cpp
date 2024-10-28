@@ -4,14 +4,15 @@
 #include <string>
 #include <thread>
 #include <tuple>
+#include <utility>
 
-#include <spdlog/common.h>
-#include <spdlog/details/file_helper.h>
-#include <spdlog/details/os.h>
+#include <cango/spdlog/common.h>
+#include <cango/spdlog/details/file_helper.h>
+#include <cango/spdlog/details/os.h>
 
 namespace spdlog::details {
-    file_helper::file_helper(const file_event_handlers &event_handlers) :
-        event_handlers_(event_handlers) {}
+    file_helper::file_helper(file_event_handlers event_handlers) :
+        event_handlers_(std::move(event_handlers)) {}
 
     file_helper::~file_helper() { close(); }
 

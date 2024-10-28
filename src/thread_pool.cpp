@@ -1,11 +1,11 @@
 #include <cassert>
-#include <spdlog/async.h>
-#include <spdlog/common.h>
-#include <spdlog/details/thread_pool.h>
+#include <cango/spdlog/async.h>
+#include <cango/spdlog/common.h>
+#include <cango/spdlog/details/thread_pool.h>
 
 namespace spdlog::details {
     thread_pool::thread_pool(size_t q_max_items,
-        size_t threads_n,
+        const size_t threads_n,
         std::function<void()> on_thread_start,
         std::function<void()> on_thread_stop) :
         q_(q_max_items) {

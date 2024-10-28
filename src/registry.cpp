@@ -1,15 +1,15 @@
-#include <spdlog/common.h>
-#include <spdlog/logger.h>
-#include <spdlog/pattern_formatter.h>
-#include <spdlog/details/periodic_worker.h>
-#include <spdlog/details/registry.h>
+#include <cango/spdlog/common.h>
+#include <cango/spdlog/logger.h>
+#include <cango/spdlog/pattern_formatter.h>
+#include <cango/spdlog/details/periodic_worker.h>
+#include <cango/spdlog/details/registry.h>
 
 #ifndef SPDLOG_DISABLE_DEFAULT_LOGGER
 // support for the default stdout color logger
 #ifdef _WIN32
-        #include <spdlog/sinks/wincolor_sink.h>
+        #include <cango/spdlog/sinks/wincolor_sink.h>
 #else
-        #include <spdlog/sinks/ansicolor_sink.h>
+        #include <cango/spdlog/sinks/ansicolor_sink.h>
 #endif
 #endif  // SPDLOG_DISABLE_DEFAULT_LOGGER
 

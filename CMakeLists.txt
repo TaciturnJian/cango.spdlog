@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.28)
 
-project(cango_utility_third_party_spdlog)
+project(cango.utility.spdlog)
 
+string(REPLACE "." "_" module_name ${PROJECT_NAME})
 aux_source_directory(src spdlog_sources)
-add_library(cango_utility_third_party_spdlog ${spdlog_sources})
-add_library(cango::utility::third_party::spdlog ALIAS cango_utility_third_party_spdlog)
-set_target_properties(cango_utility_third_party_spdlog PROPERTIES CXX_STANDARD 26)
-target_include_directories(cango_utility_third_party_spdlog PUBLIC include)
+add_library(${module_name} ${spdlog_sources})
+add_library(cango::utility::spdlog ALIAS ${module_name})
+set_target_properties(${module_name} PROPERTIES CXX_STANDARD 26)
+target_include_directories(${module_name} PUBLIC include)

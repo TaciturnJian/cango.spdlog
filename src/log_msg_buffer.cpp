@@ -1,4 +1,4 @@
-#include <spdlog/details/log_msg_buffer.h>
+#include <cango/spdlog/details/log_msg_buffer.h>
 
 namespace spdlog::details {
     log_msg_buffer::log_msg_buffer(const log_msg &orig_msg) :
